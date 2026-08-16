@@ -1,26 +1,200 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Canvas */
+  --color-paper: #f4f1ea;
+  --color-paper-alt: #ece7db;
+  --color-white: #ffffff;
+  --color-night: #121110;
+  --color-night-soft: #1c1a18;
+  --color-night-line: rgba(244, 241, 234, 0.12);
+
+  /* Ink */
+  --color-ink: #14120f;
+  --color-ink-soft: #5f5a52;
+  --color-ink-faint: #a29c90;
+  --color-border: rgba(20, 18, 15, 0.1);
+  --color-border-strong: rgba(20, 18, 15, 0.2);
+
+  /* On dark */
+  --color-cream-on-dark: #f7f4ec;
+  --color-cream-on-dark-soft: rgba(247, 244, 236, 0.68);
+  --color-border-on-dark: rgba(247, 244, 236, 0.14);
+
+  /* The one committed accent: a signal flare, not a gradient */
+  --color-signal: #ff4d2e;
+  --color-signal-dim: #d43d21;
+  --color-signal-soft: rgba(255, 77, 46, 0.14);
+  --color-signal-soft-dark: rgba(255, 77, 46, 0.22);
+
+  --color-good: #2f9e5c;
+  --color-warn: #eab308;
+  --color-bad: #e24b3a;
+
+  --beacon-sweep: conic-gradient(
+    from 200deg at 50% 30%,
+    transparent 0deg,
+    rgba(255, 77, 46, 0.55) 40deg,
+    transparent 100deg,
+    transparent 360deg
+  );
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-paper: var(--color-paper);
+  --color-paper-alt: var(--color-paper-alt);
+  --color-white: var(--color-white);
+  --color-night: var(--color-night);
+  --color-night-soft: var(--color-night-soft);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-border-on-dark: var(--color-border-on-dark);
+
+  --color-cream-on-dark: var(--color-cream-on-dark);
+  --color-cream-on-dark-soft: var(--color-cream-on-dark-soft);
+
+  --color-signal: var(--color-signal);
+  --color-signal-dim: var(--color-signal-dim);
+  --color-signal-soft: var(--color-signal-soft);
+  --color-signal-soft-dark: var(--color-signal-soft-dark);
+
+  --color-good: var(--color-good);
+  --color-warn: var(--color-warn);
+  --color-bad: var(--color-bad);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-syne);
+  --font-serif: var(--font-fraunces);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-sweep: sweep 9s linear infinite;
+  --animate-pulse-slow: pulse-slow 3.4s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes sweep {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 0.55;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 }
 
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-white);
+}
+
+/* Custom scrollbar carries the palette, not the browser default */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-faint);
+  border-radius: 999px;
+  border: 3px solid var(--color-paper);
+}
+
+.container-page {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 2.5rem;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-signal);
+}
+
+.font-accent-on-dark {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-signal);
+}
+
+/* Signature motion: a single beacon sweep, reused only at the two moments
+   that carry the thesis (hero open, CTA close) — never scattered. */
+.beacon-sweep {
+  position: absolute;
+  inset: -20%;
+  background: var(--beacon-sweep);
+  animation: var(--animate-sweep);
+  will-change: transform;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
 }
