@@ -97,7 +97,6 @@ export function BookingCTA() {
               <iframe
                 title="Book your AI Visibility Call"
                 src={CALENDLY_URL}
-                loading="lazy"
                 onLoad={() => {
                   setCalendarLoaded(true);
                   trackEvent("calendar_opened");

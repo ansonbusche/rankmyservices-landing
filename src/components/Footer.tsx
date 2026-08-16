@@ -1,8 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { Radio } from "lucide-react";
-import { BRAND_NAME, CONTACT_EMAIL } from "@/lib/config";
+import { BRAND_NAME } from "@/lib/config";
+import { ContactModal } from "@/components/ContactModal";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <footer className="border-t border-night-soft bg-night py-12">
@@ -18,7 +23,13 @@ export function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem] text-cream-on-dark-soft">
             <a href="/privacy" className="hover:text-cream-on-dark">Privacy Policy</a>
             <a href="/terms" className="hover:text-cream-on-dark">Terms</a>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-cream-on-dark">Contact</a>
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
+              className="hover:text-cream-on-dark"
+            >
+              Contact
+            </button>
           </div>
         </div>
 
@@ -33,6 +44,8 @@ export function Footer() {
           </p>
         </div>
       </div>
+
+      <ContactModal open={contactOpen} onClose={() => setContactOpen(false)} />
     </footer>
   );
 }
