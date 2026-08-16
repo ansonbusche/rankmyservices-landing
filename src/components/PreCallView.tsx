@@ -25,6 +25,8 @@ export function PreCallView() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(true);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [calendarLoaded, setCalendarLoaded] = useState(false);
 
   useEffect(() => {
@@ -38,11 +40,20 @@ export function PreCallView() {
     if (!video) return;
     const onPlay = () => setIsPaused(false);
     const onPause = () => setIsPaused(true);
+    const onTimeUpdate = () => setCurrentTime(video.currentTime);
+    const onLoadedMetadata = () => setDuration(video.duration);
     video.addEventListener("play", onPlay);
     video.addEventListener("pause", onPause);
+    video.addEventListener("timeupdate", onTimeUpdate);
+    video.addEventListener("loadedmetadata", onLoadedMetadata);
+    if (video.duration && !Number.isNaN(video.duration)) {
+      setDuration(video.duration);
+    }
     return () => {
       video.removeEventListener("play", onPlay);
       video.removeEventListener("pause", onPause);
+      video.removeEventListener("timeupdate", onTimeUpdate);
+      video.removeEventListener("loadedmetadata", onLoadedMetadata);
     };
   }, []);
 
@@ -76,6 +87,13 @@ export function PreCallView() {
     } else {
       video.pause();
     }
+  };
+
+  const seek = (time: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = time;
+    setCurrentTime(time);
   };
 
   return (
@@ -158,6 +176,24 @@ export function PreCallView() {
                   )}
                   {muted ? "Tap for sound" : "Mute"}
                 </button>
+                <div
+                  className={`absolute inset-x-0 bottom-14 flex items-center px-4 transition-opacity ${
+                    isPaused
+                      ? "opacity-100"
+                      : "pointer-events-none opacity-0"
+                  }`}
+                >
+                  <input
+                    type="range"
+                    min={0}
+                    max={duration || 0}
+                    step={0.01}
+                    value={currentTime}
+                    onChange={(e) => seek(Number(e.target.value))}
+                    aria-label="Seek video"
+                    className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-white/25 accent-[#FF4D2E]"
+                  />
+                </div>
               </div>
             </Reveal>
 
