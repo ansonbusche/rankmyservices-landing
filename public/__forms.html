@@ -1,0 +1,16 @@
+<!doctype html>
+<!--
+  This file exists only so Netlify's build-time form detector can find the
+  "contact" form. It is never rendered to visitors; the real form lives in
+  src/components/ContactModal.tsx and submits to this same form name.
+  See https://ntl.fyi/next-runtime-forms-migration
+-->
+<html>
+  <body>
+    <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>
