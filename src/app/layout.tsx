@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Fraunces, Syne } from "next/font/google";
 import "./globals.css";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
+import { ChatWidget } from "@/components/ChatWidget";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -95,6 +96,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
         />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
