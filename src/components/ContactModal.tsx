@@ -27,11 +27,12 @@ export function ContactModal({
     e.preventDefault();
     setStatus("sending");
     try {
-      await fetch("/", {
+      const res = await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", name, email, message }),
       });
+      if (!res.ok) throw new Error("Form submission failed");
       setStatus("sent");
     } catch {
       setStatus("error");
