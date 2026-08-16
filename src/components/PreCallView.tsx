@@ -24,13 +24,26 @@ const GEO_POINTS = [
 export function PreCallView() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
-  const [needsPlayTap, setNeedsPlayTap] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
   const [calendarLoaded, setCalendarLoaded] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
-    video.play().catch(() => setNeedsPlayTap(true));
+    video.play().catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const onPlay = () => setIsPaused(false);
+    const onPause = () => setIsPaused(true);
+    video.addEventListener("play", onPlay);
+    video.addEventListener("pause", onPause);
+    return () => {
+      video.removeEventListener("play", onPlay);
+      video.removeEventListener("pause", onPause);
+    };
   }, []);
 
   useEffect(() => {
@@ -52,15 +65,17 @@ export function PreCallView() {
     setMuted(video.muted);
     if (video.paused) {
       video.play().catch(() => {});
-      setNeedsPlayTap(false);
     }
   };
 
-  const handlePlayTap = () => {
+  const togglePlay = () => {
     const video = videoRef.current;
     if (!video) return;
-    video.play().catch(() => {});
-    setNeedsPlayTap(false);
+    if (video.paused) {
+      video.play().catch(() => {});
+    } else {
+      video.pause();
+    }
   };
 
   return (
@@ -120,6 +135,18 @@ export function PreCallView() {
                 />
                 <button
                   type="button"
+                  onClick={togglePlay}
+                  aria-label={isPaused ? "Play video" : "Pause video"}
+                  className="absolute inset-0 flex items-center justify-center bg-night/0 transition-colors hover:bg-night/20"
+                >
+                  {isPaused && (
+                    <span className="flex size-16 items-center justify-center rounded-full bg-signal shadow-[0_10px_30px_-6px_rgba(255,77,46,0.6)]">
+                      <Play className="ml-0.5 size-6 fill-white text-white" />
+                    </span>
+                  )}
+                </button>
+                <button
+                  type="button"
                   onClick={toggleSound}
                   aria-label={muted ? "Unmute video" : "Mute video"}
                   className="absolute bottom-4 right-4 flex items-center gap-[7px] rounded-full border border-cream-on-dark/25 bg-night/75 px-4 py-2 text-[0.82rem] font-semibold text-cream-on-dark backdrop-blur-md transition-colors hover:bg-night/90"
@@ -131,18 +158,6 @@ export function PreCallView() {
                   )}
                   {muted ? "Tap for sound" : "Mute"}
                 </button>
-                {needsPlayTap && (
-                  <button
-                    type="button"
-                    onClick={handlePlayTap}
-                    aria-label="Play video"
-                    className="absolute inset-0 flex items-center justify-center bg-night/35"
-                  >
-                    <span className="flex size-16 items-center justify-center rounded-full bg-signal shadow-[0_10px_30px_-6px_rgba(255,77,46,0.6)]">
-                      <Play className="ml-0.5 size-6 fill-white text-white" />
-                    </span>
-                  </button>
-                )}
               </div>
             </Reveal>
 
