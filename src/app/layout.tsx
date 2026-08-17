@@ -3,6 +3,7 @@ import { Inter, Fraunces, Syne } from "next/font/google";
 import "./globals.css";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 import { ChatWidget } from "@/components/ChatWidget";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -97,6 +98,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <ChatWidget />
+                <a
+                            href="tel:+13855033839"
+                            className="fixed bottom-4 left-4 z-50 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-lg hover:shadow-xl transition-shadow"
+                          >
+                          Call us: 385-503-3839
+                </a>
+              <Script
+                          src="https://widgets.leadconnectorhq.com/loader.js"
+                          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+                          data-widget-id="6a8354f98b6f957b433381d4"
+                          data-source="WEB_USER"
+                          strategy="afterInteractive"
+                        />
       </body>
     </html>
   );
