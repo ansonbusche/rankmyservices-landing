@@ -54,7 +54,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className={cn(
@@ -65,7 +65,7 @@ export function Navbar() {
               )}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -97,14 +97,14 @@ export function Navbar() {
         <div className="border-t border-border bg-paper px-6 pb-8 pt-4 md:hidden">
           <div className="flex flex-col gap-1">
             {NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-3 py-3 text-[1.02rem] font-medium text-ink-soft hover:bg-paper-alt hover:text-ink"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
           <CtaLink

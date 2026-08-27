@@ -1,3 +1,7 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
@@ -12,6 +16,9 @@ const GEO_ITEMS = [
 ];
 
 export function SEOvsGEO() {
+  const pathname = usePathname();
+  const onSeoPage = pathname === "/seo";
+
   return (
     <section id="what-is-geo" className="border-t border-border bg-paper-alt py-24 sm:py-32">
       <div className="container-page">
@@ -72,19 +79,21 @@ export function SEOvsGEO() {
           </p>
         </Reveal>
 
-        <Reveal delay={240}>
-          <div className="mx-auto mt-10 flex justify-center">
-            <a
-              href="/seo"
-              className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-ink underline decoration-border-strong decoration-2 underline-offset-4 transition-colors hover:text-signal hover:decoration-signal"
-            >
-              See everything included in our SEO services
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
-                &rarr;
-              </span>
-            </a>
-          </div>
-        </Reveal>
+        {!onSeoPage && (
+          <Reveal delay={240}>
+            <div className="mx-auto mt-10 flex justify-center">
+              <Link
+                href="/seo"
+                className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold text-ink underline decoration-border-strong decoration-2 underline-offset-4 transition-colors hover:text-signal hover:decoration-signal"
+              >
+                See everything included in our SEO services
+                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                  &rarr;
+                </span>
+              </Link>
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

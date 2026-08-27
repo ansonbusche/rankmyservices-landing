@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Radio } from "lucide-react";
 import { BRAND_NAME } from "@/lib/config";
 import { ContactModal } from "@/components/ContactModal";
@@ -21,9 +22,9 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem] text-cream-on-dark-soft">
-            <a href="/seo" className="hover:text-cream-on-dark">SEO Services</a>
-            <a href="/privacy" className="hover:text-cream-on-dark">Privacy Policy</a>
-            <a href="/terms" className="hover:text-cream-on-dark">Terms</a>
+            <Link href="/seo" className="hover:text-cream-on-dark">SEO Services</Link>
+            <Link href="/privacy" className="hover:text-cream-on-dark">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-cream-on-dark">Terms</Link>
             <button
               type="button"
               onClick={() => setContactOpen(true)}
