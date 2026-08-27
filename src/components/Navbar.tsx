@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, Radio, X } from "lucide-react";
 import { BRAND_NAME, NAV_LINKS, PRIMARY_CTA_SHORT } from "@/lib/config";
 import { CtaLink } from "@/components/ui/CtaLink";
@@ -36,8 +37,8 @@ export function Navbar() {
       )}
     >
       <nav className="container-page flex h-[72px] items-center justify-between">
-        <a
-          href="#top"
+        <Link
+          href="/"
           className={cn(
             "flex items-center gap-2.5 transition-colors",
             solid ? "text-ink" : "text-cream-on-dark"
@@ -49,7 +50,7 @@ export function Navbar() {
           <span className="font-display text-[1.05rem] font-bold tracking-tight">
             {BRAND_NAME}
           </span>
-        </a>
+        </Link>
 
         <div className="hidden items-center gap-7 lg:flex">
           {NAV_LINKS.map((link) => (
