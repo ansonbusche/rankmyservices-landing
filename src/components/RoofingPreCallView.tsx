@@ -1,27 +1,32 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { ArrowRight, Play, Radio, Volume2, VolumeX } from "lucide-react";
 import { BRAND_NAME, CALENDLY_URL } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
 import { Reveal } from "@/components/ui/Reveal";
 
-const GEO_POINTS = [
+const SEARCH_POINTS = [
   {
-    title: "AI doesn't hand back ten links — it hands back an answer.",
-    body: "ChatGPT, Claude, Gemini, and Perplexity give a shortlist, not a search results page. If you're not in the answer, you're not in the consideration set.",
+    title: "Homeowners still Google “roof replacement near me.” Now they also ask ChatGPT who to call.",
+    body: "AI doesn't hand back ten links — it hands back a shortlist. If you're not ranking and not in that shortlist, you're not in the running for either kind of search.",
   },
   {
-    title: "GEO builds the authority AI systems look for.",
-    body: "Expert content, schema markup, and citations — a steady monthly cycle, not a one-time trick.",
+    title: "We run SEO and GEO side by side, not one instead of the other.",
+    body: "Technical & local SEO, Google Business Profile, and citations to win Google — plus expert content, schema, and authority signals so AI systems recommend you too.",
+  },
+  {
+    title: "Already doing some of this? We build on it, not over it.",
+    body: "Whether you already run SEO, already have some AI visibility, or have neither, we audit what's in place first and scope the plan around the gap — not a one-size package.",
   },
   {
     title: "We show you the problem before you hire us.",
-    body: "We test the questions your customers ask AI before hiring, and show you which competitors currently get recommended instead of you.",
+    body: "We test the questions homeowners ask Google and AI before hiring a roofer, and show you which companies currently get found and recommended instead of you.",
   },
 ];
 
-export function PreCallView() {
+export function RoofingPreCallView() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(true);
@@ -117,21 +122,22 @@ export function PreCallView() {
             <Reveal>
               <span className="inline-flex items-center gap-2 rounded-full border border-border-on-dark bg-white/[0.04] px-3.5 py-1.5 text-[0.78rem] font-semibold tracking-tight text-cream-on-dark-soft">
                 <span className="size-1.5 animate-pulse-slow rounded-full bg-signal" />
-                The next search war has already started
+                SEO + GEO for roofing companies
               </span>
             </Reveal>
             <Reveal delay={80}>
               <h1 className="mt-6 font-display text-[2.1rem] font-bold leading-[1.06] tracking-tight text-cream-on-dark sm:text-[2.9rem]">
-                When customers ask ChatGPT{" "}
+                When homeowners Google a roofer &mdash; or ask ChatGPT{" "}
                 <span className="font-accent">who to hire</span>&hellip; does
-                your business show up?
+                your company show up?
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="mx-auto mt-5 max-w-lg text-[1.02rem] leading-relaxed text-cream-on-dark-soft">
                 Watch this 60-second breakdown, then grab a spot on our
                 calendar &mdash; we&rsquo;ll show you exactly where you
-                stand.
+                stand in Google search and AI search, whether you already
+                have SEO or GEO in place or none at all.
               </p>
             </Reveal>
           </div>
@@ -204,7 +210,7 @@ export function PreCallView() {
                   onClick={() => trackEvent("hero_cta_clicked")}
                   className="group inline-flex items-center justify-center gap-2 rounded-full bg-signal px-7 py-[15px] text-[0.98rem] font-semibold text-white shadow-[0_8px_24px_-8px_rgba(255,77,46,0.65)] transition-all hover:bg-signal-dim"
                 >
-                  Book Your AI Visibility Call
+                  Book Your Search & AI Visibility Call
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
                 <p className="mt-3.5 text-[0.85rem] text-cream-on-dark-soft/70">
@@ -220,12 +226,12 @@ export function PreCallView() {
         <div className="container-page mx-auto max-w-2xl">
           <Reveal>
             <h2 className="text-center font-display text-[1.6rem] font-bold tracking-tight text-ink sm:text-[1.9rem]">
-              What is <span className="font-accent">GEO</span>, in plain
-              terms?
+              SEO + <span className="font-accent">GEO</span>, in plain terms
+              for roofers
             </h2>
           </Reveal>
           <div className="mt-9 border-t border-border">
-            {GEO_POINTS.map((point, i) => (
+            {SEARCH_POINTS.map((point, i) => (
               <Reveal key={point.title} delay={i * 80}>
                 <div className="flex gap-4 border-b border-border py-[22px]">
                   <span className="w-7 shrink-0 font-display text-[0.95rem] font-bold text-signal">
@@ -262,8 +268,8 @@ export function PreCallView() {
               See where you stand.
             </h2>
             <p className="mx-auto mt-3 max-w-md text-[1rem] text-cream-on-dark-soft">
-              Book a short strategy call and we&rsquo;ll walk through your AI
-              visibility snapshot together.
+              Book a short strategy call and we&rsquo;ll walk through your
+              search and AI visibility snapshot together.
             </p>
           </Reveal>
           <Reveal delay={120}>
@@ -274,7 +280,7 @@ export function PreCallView() {
                 </div>
               )}
               <iframe
-                title="Book your AI Visibility Call"
+                title="Book your Search & AI Visibility Call"
                 src={CALENDLY_URL}
                 onLoad={() => {
                   setCalendarLoaded(true);
@@ -291,9 +297,9 @@ export function PreCallView() {
       <footer className="border-t border-night-soft bg-night py-10 text-center">
         <p className="text-[0.82rem] text-cream-on-dark-soft/70">
           &copy; {new Date().getFullYear()} {BRAND_NAME} &middot;{" "}
-          <a href="/" className="hover:text-cream-on-dark">
+          <Link href="/" className="hover:text-cream-on-dark">
             rankmyservices.io
-          </a>
+          </Link>
         </p>
       </footer>
     </>

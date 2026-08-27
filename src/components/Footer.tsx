@@ -21,6 +21,7 @@ export function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem] text-cream-on-dark-soft">
+            <a href="/seo" className="hover:text-cream-on-dark">SEO Services</a>
             <a href="/privacy" className="hover:text-cream-on-dark">Privacy Policy</a>
             <a href="/terms" className="hover:text-cream-on-dark">Terms</a>
             <button

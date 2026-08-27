@@ -26,9 +26,9 @@ const syne = Syne({
   display: "swap",
 });
 
-const title = `GEO Services | Get Found in ChatGPT & AI Search | ${BRAND_NAME}`;
+const title = `SEO & GEO Services | Rank on Google. Get Recommended by AI. | ${BRAND_NAME}`;
 const description =
-  "Increase your business's visibility across ChatGPT, Claude, Gemini, Perplexity and AI-powered search. See which competitors AI recommends and learn how to improve your AI search presence.";
+  "We run SEO and GEO together: rank higher in Google search while also increasing your visibility across ChatGPT, Claude, Gemini, Perplexity and AI-powered search. See which competitors AI recommends and learn how to improve your search and AI search presence.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -65,7 +65,20 @@ const organizationSchema = {
   name: BRAND_NAME,
   url: SITE_URL,
   description:
-    "AI Search Visibility company helping established businesses increase how often they are discovered, cited, and recommended by ChatGPT, Claude, Gemini, Perplexity, and AI-powered search.",
+    "SEO and AI Search Visibility company helping established businesses rank higher on Google and increase how often they are discovered, cited, and recommended by ChatGPT, Claude, Gemini, Perplexity, and AI-powered search.",
+};
+
+const seoServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  serviceType: "Search Engine Optimization (SEO)",
+  provider: {
+    "@type": "Organization",
+    name: BRAND_NAME,
+  },
+  areaServed: "US",
+  description:
+    "Technical SEO, on-page optimization, local SEO and Google Business Profile management, citation building, content, and monthly reporting to improve traditional Google search rankings.",
 };
 
 const serviceSchema = {
@@ -91,6 +104,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(seoServiceSchema) }}
         />
         <script
           type="application/ld+json"

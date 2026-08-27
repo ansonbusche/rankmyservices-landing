@@ -12,7 +12,7 @@ interface Message {
 
 const GREETING: Message = {
   role: "assistant",
-  content: `Hi! I'm the ${BRAND_NAME} assistant. Ask me anything about GEO, AI search visibility, or how this works.`,
+  content: `Hi! I'm the ${BRAND_NAME} assistant. Ask me anything about SEO, GEO, AI search visibility, or how this works.`,
 };
 
 export function ChatWidget() {

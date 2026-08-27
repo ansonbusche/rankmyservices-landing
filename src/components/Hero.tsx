@@ -20,13 +20,13 @@ export function Hero() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border-on-dark bg-white/[0.04] px-3.5 py-1.5 text-[0.78rem] font-semibold tracking-tight text-cream-on-dark-soft">
               <span className="size-1.5 animate-pulse-slow rounded-full bg-signal" />
-              The next search war has already started
+              SEO + GEO — search engines and AI search, covered
             </span>
           </Reveal>
 
           <Reveal delay={80}>
             <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight text-cream-on-dark sm:text-[3.6rem] lg:text-[4rem]">
-              When customers ask ChatGPT{" "}
+              When customers Google you &mdash; or ask ChatGPT{" "}
               <span className="font-accent">who to hire</span>&hellip; does
               your business show up?
             </h1>
@@ -34,10 +34,10 @@ export function Hero() {
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-[1.1rem] leading-relaxed text-cream-on-dark-soft">
-              Customers are starting to use ChatGPT, Claude, Gemini, Perplexity,
-              and AI-powered search to decide which companies deserve their
-              business. We help make sure yours has a fighting chance to be
-              in the answer.
+              Customers still search Google before they call. Increasingly,
+              they also ask ChatGPT, Claude, Gemini, and Perplexity. We run
+              both sides: SEO to keep you ranking, and GEO to get you
+              recommended in AI answers.
             </p>
           </Reveal>
 
