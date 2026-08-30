@@ -12,7 +12,7 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
-const title = `SEO Services | Rank Higher on Google | ${BRAND_NAME}`;
+const title = "SEO Services | Rank Higher on Google";
 const description =
   "Full-service SEO — technical, on-page, local, content, and citations — fulfilled through our white-label SEO partner and layered with GEO so you show up in Google search and AI answers.";
 
