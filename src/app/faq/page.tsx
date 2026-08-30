@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
-const title = `FAQ | SEO & GEO Questions Answered | ${BRAND_NAME}`;
+const title = "FAQ: SEO & GEO Questions Answered";
 const description =
   "Answers to the most common questions about SEO, GEO, and AI search visibility — what it costs, how it works, and what to expect.";
 
