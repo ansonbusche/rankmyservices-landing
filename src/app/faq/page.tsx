@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
-import { SEOHero } from "@/components/SEOHero";
-import { SEOvsGEO } from "@/components/SEOvsGEO";
-import { SEOServices } from "@/components/SEOServices";
-import { IndustryExamples } from "@/components/IndustryExamples";
-import { AuditSection } from "@/components/AuditSection";
 import { FAQ } from "@/components/FAQ";
 import { faqSchema } from "@/lib/faq-data";
 import { BookingCTA } from "@/components/BookingCTA";
@@ -12,18 +7,18 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
-const title = "SEO Services | Rank Higher on Google";
+const title = "FAQ: SEO & GEO Questions Answered";
 const description =
-  "Full-service SEO — technical, on-page, local, content, and citations — fulfilled through our white-label SEO partner and layered with GEO so you show up in Google search and AI answers.";
+  "Answers to the most common questions about SEO, GEO, and AI search visibility — what it costs, how it works, and what to expect.";
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: { canonical: "/seo" },
+  alternates: { canonical: "/faq" },
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
-    url: `${SITE_URL}/seo`,
+    url: `${SITE_URL}/faq`,
     siteName: BRAND_NAME,
     title,
     description,
@@ -31,7 +26,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SEOPage() {
+export default function FAQPage() {
   return (
     <>
       <script
@@ -39,15 +34,19 @@ export default function SEOPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Navbar />
-      <main className="flex-1">
-        <SEOHero />
-        <SEOvsGEO />
-        <SEOServices />
-        <IndustryExamples />
-        <AuditSection />
+      <main className="flex-1 bg-paper pb-24 pt-40 sm:pt-48">
+        <div className="container-page max-w-3xl">
+          <h1 className="font-display text-[2.2rem] font-bold tracking-tight text-ink sm:text-[2.8rem]">
+            Frequently asked questions
+          </h1>
+          <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">
+            Straight answers on how SEO and GEO work together, what we
+            actually do each month, and what you can expect.
+          </p>
+        </div>
         <FAQ />
-        <BookingCTA />
       </main>
+      <BookingCTA />
       <Footer />
       <StickyMobileCta />
     </>
