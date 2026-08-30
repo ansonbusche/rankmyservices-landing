@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
-const title = `About ${BRAND_NAME} | SEO & AI Search Visibility`;
+const title = "About Us";
 const description =
   "RankMyServices helps established, owner-led businesses rank higher on Google and get discovered, cited, and recommended by ChatGPT, Claude, Gemini, and Perplexity.";
 
