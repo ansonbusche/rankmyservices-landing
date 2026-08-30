@@ -6,7 +6,7 @@ import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { ContactForm } from "@/components/ContactForm";
 import { BRAND_NAME, CONTACT_EMAIL, SITE_URL } from "@/lib/config";
 
-const title = `Contact ${BRAND_NAME} | SEO & GEO Services`;
+const title = "Contact Us";
 const description =
   "Get in touch with RankMyServices — send a message or reach us directly by phone or email.";
 
