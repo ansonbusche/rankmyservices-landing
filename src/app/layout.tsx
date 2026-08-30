@@ -26,9 +26,9 @@ const syne = Syne({
   display: "swap",
 });
 
-const title = `SEO & GEO Services | Rank on Google. Get Recommended by AI. | ${BRAND_NAME}`;
+const title = `SEO & GEO Services | Rank Higher & Get Cited by AI | ${BRAND_NAME}`;
 const description =
-  "We run SEO and GEO together: rank higher in Google search while also increasing your visibility across ChatGPT, Claude, Gemini, Perplexity and AI-powered search. See which competitors AI recommends and learn how to improve your search and AI search presence.";
+      "We combine SEO and GEO to rank you higher in Google search and increase how often ChatGPT, Claude, Gemini, and Perplexity recommend your business.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
