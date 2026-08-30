@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
-const title = `Our Services | SEO & GEO, Every Month | ${BRAND_NAME}`;
+const title = "Our Services: SEO & GEO, Every Month";
 const description =
   "What we do every month: technical and local SEO, content, and citations, plus the GEO work that keeps you visible in ChatGPT, Claude, Gemini, and Perplexity.";
 
