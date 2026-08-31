@@ -61,10 +61,19 @@ export function ChatWidget() {
         onClick={() => setOpen((v) => !v)}
         aria-label={open ? "Close chat assistant" : "Open chat assistant"}
         className={cn(
-          "fixed bottom-20 right-5 z-[90] flex size-14 items-center justify-center rounded-full bg-signal text-white shadow-[0_10px_30px_-8px_rgba(255,77,46,0.7)] transition-transform hover:scale-105 md:bottom-6 md:right-6"
+          "fixed bottom-20 right-5 z-[90] flex size-14 items-center justify-center rounded-full bg-signal text-white shadow-[0_10px_30px_-8px_rgba(255,77,46,0.7)] transition-transform hover:scale-105"
         )}
       >
-        {open ? <X className="size-6" /> : <MessageCircle className="size-6" />}
+        {open ? (
+          <X className="size-6" />
+        ) : (
+          <span className="relative flex size-6 items-center justify-center" aria-hidden="true">
+            <MessageCircle className="size-6" />
+            <span className="absolute text-[8px] font-extrabold leading-none tracking-tight">
+              AI
+            </span>
+          </span>
+        )}
         {!open && (
           <span className="absolute inset-0 -z-10 animate-pulse-slow rounded-full bg-signal/50 blur-md" />
         )}
@@ -73,7 +82,7 @@ export function ChatWidget() {
       <div
         aria-hidden={!open}
         className={cn(
-          "fixed bottom-36 right-5 z-[90] flex w-[min(22rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl border border-night-soft bg-night shadow-[0_40px_90px_-30px_rgba(0,0,0,0.6)] transition-all duration-200 md:bottom-24 md:right-6",
+          "fixed bottom-36 right-5 z-[90] flex w-[min(22rem,calc(100vw-2.5rem))] flex-col overflow-hidden rounded-3xl border border-night-soft bg-night shadow-[0_40px_90px_-30px_rgba(0,0,0,0.6)] transition-all duration-200",
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-3 opacity-0"
