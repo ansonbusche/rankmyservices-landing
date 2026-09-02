@@ -127,7 +127,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Script
                           src="https://widgets.leadconnectorhq.com/loader.js"
                           data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-                          data-widget-id="6a8ca91d8162133d0eb17165"
+                          data-widget-id="6a978f29e27858db9ec7c682"
                           data-source="WEB_USER"
                           strategy="afterInteractive"
                         />
