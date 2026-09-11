@@ -21,7 +21,7 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
           </Link>
 
           <Reveal>
-            <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-signal">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-signal sm:text-[0.72rem]">
               {service.label}
             </span>
             <h1 className="mt-3 font-display text-[2.1rem] font-bold leading-[1.06] tracking-tight text-cream-on-dark sm:text-[2.9rem]">

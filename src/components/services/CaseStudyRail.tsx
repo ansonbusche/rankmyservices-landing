@@ -104,16 +104,16 @@ function CoverCard({
             <span className="block font-display text-[2.6rem] font-black leading-none tracking-tight text-cream-on-dark">
               {study.statValue}
             </span>
-            <span className="mt-1 block font-mono text-[0.6rem] uppercase tracking-[0.18em] text-cream-on-dark-soft">
+            <span className="mt-1 block font-mono text-[0.68rem] uppercase tracking-[0.18em] text-cream-on-dark-soft sm:text-[0.6rem]">
               {study.statDirection}
             </span>
           </span>
-          <span className="border-l border-border-on-dark pl-4 font-mono text-[0.64rem] uppercase leading-snug tracking-[0.1em] text-cream-on-dark-soft">
+          <span className="border-l border-border-on-dark pl-4 font-mono text-[0.72rem] uppercase leading-snug tracking-[0.1em] text-cream-on-dark-soft sm:text-[0.64rem]">
             {study.statLabel}
           </span>
         </span>
 
-        <span className="mt-4 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-cream-on-dark-soft transition-colors group-hover:text-signal">
+        <span className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-cream-on-dark-soft transition-colors group-hover:text-signal sm:text-[0.62rem]">
           View full case study →
         </span>
       </span>

@@ -224,7 +224,7 @@ export function ChipRow({ chips }: { chips: string[] }) {
         return (
           <span
             key={chip}
-            className="inline-flex items-center gap-1.5 rounded-full border border-border-on-dark bg-white/[0.04] py-1 pl-1.5 pr-2.5 text-[0.68rem] font-medium tracking-wide text-cream-on-dark-soft"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border-on-dark bg-white/[0.04] py-1.5 pl-1.5 pr-2.5 text-[0.75rem] font-medium tracking-wide sm:py-1 sm:text-[0.68rem] text-cream-on-dark-soft"
           >
             {Icon ? <Icon className="text-cream-on-dark" /> : null}
             {chip}

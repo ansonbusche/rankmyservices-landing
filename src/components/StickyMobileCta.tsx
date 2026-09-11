@@ -18,7 +18,11 @@ export function StickyMobileCta() {
   return (
     <div
       className={cn(
-        "fixed inset-x-0 bottom-0 z-40 border-t border-border bg-paper/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 md:hidden",
+        // z sits just above the LeadConnector chat widget (99999999). Its greeting
+// bubble is position:fixed and was physically covering this button on
+// phones, making the primary mobile CTA impossible to tap. The widget
+// lives in a shadow root, so it cannot be restyled from here.
+        "fixed inset-x-0 bottom-0 z-[100000000] border-t border-border bg-paper/95 px-4 py-3 backdrop-blur-md transition-transform duration-300 md:hidden",
         visible ? "translate-y-0" : "translate-y-full"
       )}
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}

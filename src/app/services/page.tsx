@@ -35,7 +35,7 @@ export default function ServicesPage() {
 
         <section className="border-b border-night-soft bg-night pb-14 pt-14 sm:pt-16">
           <div className="container-page max-w-3xl">
-            <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-signal">
+            <span className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-signal sm:text-[0.72rem]">
               Our services
             </span>
             <h1 className="mt-3 font-display text-[2.2rem] font-bold tracking-tight text-cream-on-dark sm:text-[2.8rem]">

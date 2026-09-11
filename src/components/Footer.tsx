@@ -15,14 +15,14 @@ export function Footer() {
             <span className="font-display text-[1rem] font-extrabold tracking-tight">{BRAND_NAME}</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem] text-cream-on-dark-soft">
-            <Link href="/services" className="hover:text-cream-on-dark">Services</Link>
-            <Link href="/seo" className="hover:text-cream-on-dark">SEO Services</Link>
-            <Link href="/faq" className="hover:text-cream-on-dark">FAQ</Link>
-            <Link href="/about" className="hover:text-cream-on-dark">About</Link>
-            <Link href="/privacy" className="hover:text-cream-on-dark">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-cream-on-dark">Terms</Link>
-            <Link href="/contact" className="hover:text-cream-on-dark">Contact</Link>
+          <div className="-my-1 flex flex-wrap items-center gap-x-6 text-[0.9rem] text-cream-on-dark-soft sm:text-[0.85rem]">
+            <Link href="/services" className="py-2 hover:text-cream-on-dark">Services</Link>
+            <Link href="/seo" className="py-2 hover:text-cream-on-dark">SEO Services</Link>
+            <Link href="/faq" className="py-2 hover:text-cream-on-dark">FAQ</Link>
+            <Link href="/about" className="py-2 hover:text-cream-on-dark">About</Link>
+            <Link href="/privacy" className="py-2 hover:text-cream-on-dark">Privacy Policy</Link>
+            <Link href="/terms" className="py-2 hover:text-cream-on-dark">Terms</Link>
+            <Link href="/contact" className="py-2 hover:text-cream-on-dark">Contact</Link>
           </div>
         </div>
 

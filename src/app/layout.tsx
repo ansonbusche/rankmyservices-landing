@@ -119,7 +119,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <ChatWidget />
         <a
           href="tel:+13855033839"
-          className="fixed bottom-4 left-4 z-50 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-lg hover:shadow-xl transition-shadow"
+          className="fixed bottom-4 left-4 z-50 hidden rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-lg transition-shadow hover:shadow-xl md:inline-flex"
         >
           Call us: 385-503-3839
         </a>
