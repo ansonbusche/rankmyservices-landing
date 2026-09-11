@@ -21,7 +21,11 @@ export async function generateMetadata({
   const service = getServiceBySlug(slug);
   if (!service) return {};
 
-  const title = `${service.name} ${service.accent} | ${BRAND_NAME}`;
+  // The root layout sets title.template = "%s | BRAND", so this must NOT
+  // append the brand itself or the tag renders "... | Brand | Brand".
+  // openGraph.title is not templated, so it carries the full string.
+  const title = `${service.name} ${service.accent}`;
+  const titleWithBrand = `${title} | ${BRAND_NAME}`;
   const description = service.description;
 
   return {
@@ -33,7 +37,7 @@ export async function generateMetadata({
       type: "website",
       url: `${SITE_URL}/services/${service.slug}`,
       siteName: BRAND_NAME,
-      title,
+      title: titleWithBrand,
       description,
       locale: "en_US",
     },
