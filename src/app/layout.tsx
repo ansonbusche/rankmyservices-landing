@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, Syne } from "next/font/google";
+import { Inter, Archivo, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 import { ChatWidget } from "@/components/ChatWidget";
@@ -11,24 +11,23 @@ const inter = Inter({
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
-  style: ["italic"],
-  axes: ["opsz", "SOFT", "WONK"],
+  weight: ["500", "600", "700", "800", "900"],
   display: "swap",
 });
 
-const syne = Syne({
-  variable: "--font-syne",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-plex-mono",
   subsets: ["latin"],
-  weight: ["600", "700", "800"],
+  weight: ["500", "600"],
   display: "swap",
 });
 
 const title = `SEO & GEO Services | Rank Higher & Get Cited by AI | ${BRAND_NAME}`;
 const description =
-      "We combine SEO and GEO to rank you higher in Google search and increase how often ChatGPT, Claude, Gemini, and Perplexity recommend your business.";
+  "We combine SEO and GEO to rank you higher in Google search and increase how often ChatGPT, Claude, Gemini, and Perplexity recommend your business.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -44,9 +43,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-    verification: {
-          google: "3z_jdJWsivBGTcLO7CGeYju3TwEn3mvRHs9Rug_quMM",
-    },
+  verification: {
+    google: "3z_jdJWsivBGTcLO7CGeYju3TwEn3mvRHs9Rug_quMM",
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
@@ -101,7 +100,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${syne.variable} h-full`}
+      className={`${inter.variable} ${archivo.variable} ${ibmPlexMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-paper text-ink font-sans">
         <script
@@ -118,19 +117,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
         {children}
         <ChatWidget />
-                <a
-                            href="tel:+13855033839"
-                            className="fixed bottom-4 left-4 z-50 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-lg hover:shadow-xl transition-shadow"
-                          >
-                          Call us: 385-503-3839
-                </a>
-              <Script
-                          src="https://widgets.leadconnectorhq.com/loader.js"
-                          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-                          data-widget-id="6a978f29e27858db9ec7c682"
-                          data-source="WEB_USER"
-                          strategy="afterInteractive"
-                        />
+        <a
+          href="tel:+13855033839"
+          className="fixed bottom-4 left-4 z-50 rounded-full bg-white px-4 py-2 text-sm font-semibold text-ink shadow-lg hover:shadow-xl transition-shadow"
+        >
+          Call us: 385-503-3839
+        </a>
+        <Script
+          src="https://widgets.leadconnectorhq.com/loader.js"
+          data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+          data-widget-id="6a978f29e27858db9ec7c682"
+          data-source="WEB_USER"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
