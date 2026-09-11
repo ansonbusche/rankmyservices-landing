@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
-import { GEOServices } from "@/components/GEOServices";
-import { SEOServices } from "@/components/SEOServices";
 import { ServiceGrid } from "@/components/services/ServiceGrid";
 import { ServiceTabs } from "@/components/services/ServiceTabs";
 import { BookingCTA } from "@/components/BookingCTA";
@@ -32,7 +30,7 @@ export default function ServicesPage() {
   return (
     <>
       <Navbar hub />
-      <main className="flex-1 bg-paper pb-24 pt-[72px]">
+      <main className="flex-1 bg-paper pt-[72px]">
         <ServiceTabs />
 
         <section className="border-b border-night-soft bg-night pb-14 pt-14 sm:pt-16">
@@ -56,8 +54,6 @@ export default function ServicesPage() {
             <ServiceGrid />
           </div>
         </section>
-        <GEOServices />
-        <SEOServices />
       </main>
       <BookingCTA />
       <Footer />
