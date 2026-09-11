@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { GEOServices } from "@/components/GEOServices";
 import { SEOServices } from "@/components/SEOServices";
+import { ServiceGrid } from "@/components/services/ServiceGrid";
 import { BookingCTA } from "@/components/BookingCTA";
 import { Footer } from "@/components/Footer";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
@@ -40,6 +41,9 @@ export default function ServicesPage() {
             that ranks you in Google, and the GEO work that gets you
             recommended by AI.
           </p>
+        </div>
+        <div className="container-page mt-12">
+          <ServiceGrid />
         </div>
         <GEOServices />
         <SEOServices />
