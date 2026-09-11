@@ -2,6 +2,7 @@ import { CtaLink } from "@/components/ui/CtaLink";
 import { LinkButton } from "@/components/ui/Button";
 import { VideoPanel } from "@/components/VideoPanel";
 import { Reveal } from "@/components/ui/Reveal";
+import { Phone } from "lucide-react";
 
 export function Hero() {
   return (
@@ -28,17 +29,16 @@ export function Hero() {
           <Reveal delay={80}>
             <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight text-cream-on-dark sm:text-[3.6rem] lg:text-[4rem]">
               When customers Google you &mdash; or ask ChatGPT{" "}
-              <span className="font-bold text-signal">who to hire</span>&hellip; does
+              <span className="font-bold text-signal">who to hire</span> &mdash; does
               your business show up?
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
             <p className="mt-6 max-w-xl text-[1.1rem] leading-relaxed text-cream-on-dark-soft">
-              Customers still search Google before they call. Increasingly,
-              they also ask ChatGPT, Claude, Gemini, and Perplexity. We run
-              both sides: SEO to keep you ranking, and GEO to get you
-              recommended in AI answers.
+              We run both sides of the search battlefield: SEO to keep you
+              ranking in Google, and GEO to get you recommended by ChatGPT,
+              Claude, Gemini, and Perplexity.
             </p>
           </Reveal>
 
@@ -56,10 +56,13 @@ export function Hero() {
                 ▶ Watch the overview
               </LinkButton>
             </div>
-            <p className="mt-4 text-[0.88rem] text-cream-on-dark-soft/70">
-              We&rsquo;ll show you which competitors AI recommends &mdash; and
-              where you&rsquo;re currently invisible.
-            </p>
+            <a
+              href="tel:+13855033839"
+              className="mt-4 inline-flex items-center gap-2 text-[0.88rem] text-cream-on-dark-soft/70 transition-colors hover:text-cream-on-dark"
+            >
+              <Phone className="size-3.5" />
+              Call us: 385-503-3839
+            </a>
           </Reveal>
         </div>
 
