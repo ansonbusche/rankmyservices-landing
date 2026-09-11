@@ -198,3 +198,18 @@ body {
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
+
+
+/* Ticker for MarqueeStrip: track is content duplicated 2x, animation scrolls exactly half width for a seamless loop */
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    from {
+          transform: translateX(0);
+    }
+    to {
+          transform: translateX(-50%);
+    }
+}
