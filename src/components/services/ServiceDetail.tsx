@@ -3,6 +3,7 @@ import { ArrowLeft, Check } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Reveal } from "@/components/ui/Reveal";
+import { ServiceTabs } from "@/components/services/ServiceTabs";
 import type { ServiceCategory } from "@/lib/servicesData";
 
 export function ServiceDetail({ service }: { service: ServiceCategory }) {
@@ -50,6 +51,8 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
           </Reveal>
         </div>
       </section>
+
+      <ServiceTabs activeSlug={service.slug} />
 
       <section className="border-b border-night-soft bg-night-soft py-12">
         <div className="container-page">
