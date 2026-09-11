@@ -1,31 +1,48 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Volume2 } from "lucide-react";
+import { Play, Volume2 } from "lucide-react";
 
-// Hero explainer. Autoplays muted and loops — browsers only permit autoplay
-// without sound, so the unmute prompt below is the way viewers opt into audio.
-// Native controls stay on so they can also scrub or go fullscreen.
+// Hero explainer.
 //
-// Autoplay means every visitor fetches the file, so it is kept to a single
-// 14MB 1080p encode rather than anything larger.
+// Preferred state is muted autoplay on loop, with a prompt to turn sound on.
+// But autoplay is not guaranteed: mobile user agents, Android Data Saver and
+// iOS Low Power Mode all refuse it even when muted, and prefers-reduced-motion
+// is a reason not to move on our own. Verified refused under a mobile UA.
+//
+// So we ASK to play and react to the answer rather than assuming. If playback
+// is refused we fall back to a proper play button — a frozen frame offering
+// only "Tap for sound" would be misleading, since nothing is playing.
 export function VideoPanel() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
 
-  // Respect reduced-motion: hold on the poster instead of moving on its own.
   useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      videoRef.current?.pause();
+      video.pause();
+      return;
     }
+    void video.play().catch(() => {
+      // Autoplay refused — the play button below takes over.
+    });
   }, []);
 
+  // Tapping the fallback button is a user gesture, so sound is allowed.
+  function playWithSound() {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    void video.play();
+  }
+
   function unmute() {
-    const v = videoRef.current;
-    if (!v) return;
-    v.muted = false;
-    setMuted(false);
-    if (v.paused) v.play();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = false;
+    if (video.paused) void video.play();
   }
 
   return (
@@ -41,10 +58,33 @@ export function VideoPanel() {
         playsInline
         controls
         preload="auto"
+        onPlay={() => setPlaying(true)}
+        onPause={() => setPlaying(false)}
         onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
       />
 
-      {muted && (
+      {!playing && (
+        <button
+          type="button"
+          onClick={playWithSound}
+          aria-label="Play the RankMyServices explainer"
+          className="group absolute inset-0 flex items-center justify-center bg-night/25 transition-colors hover:bg-night/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-signal"
+        >
+          <span
+            aria-hidden
+            className="absolute size-16 animate-ping rounded-full bg-signal opacity-40"
+          />
+          <span className="relative flex size-16 items-center justify-center rounded-full bg-signal text-white shadow-[0_10px_30px_-10px_rgba(255,75,46,0.7)] transition-transform group-hover:scale-105">
+            <Play className="ml-1 size-5" fill="currentColor" strokeWidth={0} />
+          </span>
+          <span className="absolute inset-x-4 bottom-3.5 flex items-center justify-between font-mono text-[0.66rem] tracking-[0.08em] text-cream-on-dark-soft">
+            <span>WATCH THE OVERVIEW</span>
+            <span className="font-semibold text-cream-on-dark">2:03</span>
+          </span>
+        </button>
+      )}
+
+      {playing && muted && (
         <button
           type="button"
           onClick={unmute}
