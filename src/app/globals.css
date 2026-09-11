@@ -67,8 +67,8 @@
   --color-bad: var(--color-bad);
 
   --font-sans: var(--font-inter);
-  --font-display: var(--font-syne);
-  --font-serif: var(--font-fraunces);
+  --font-display: var(--font-archivo);
+  --font-mono: var(--font-ibm-plex-mono);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-sweep: sweep 9s linear infinite;
@@ -172,16 +172,16 @@ body {
 }
 
 .font-accent {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
   color: var(--color-signal);
 }
 
 .font-accent-on-dark {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
   color: var(--color-signal);
 }
 
@@ -199,17 +199,16 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-
 /* Ticker for MarqueeStrip: track is content duplicated 2x, animation scrolls exactly half width for a seamless loop */
 .animate-marquee {
-    animation: marquee 30s linear infinite;
+  animation: marquee 30s linear infinite;
 }
 
 @keyframes marquee {
-    from {
-          transform: translateX(0);
-    }
-    to {
-          transform: translateX(-50%);
-    }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
