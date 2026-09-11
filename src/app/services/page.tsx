@@ -34,19 +34,28 @@ export default function ServicesPage() {
       <Navbar hub />
       <main className="flex-1 bg-paper pb-24 pt-[72px]">
         <ServiceTabs />
-        <div className="container-page max-w-3xl pb-10 pt-16 sm:pt-20">
-          <h1 className="font-display text-[2.2rem] font-bold tracking-tight text-ink sm:text-[2.8rem]">
-            What we do, every month
-          </h1>
-          <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-soft">
-            One monthly cycle covering both sides of search: the SEO work
-            that ranks you in Google, and the GEO work that gets you
-            recommended by AI.
-          </p>
-        </div>
-        <div className="container-page mt-12">
-          <ServiceGrid />
-        </div>
+
+        <section className="border-b border-night-soft bg-night pb-14 pt-14 sm:pt-16">
+          <div className="container-page max-w-3xl">
+            <span className="text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-signal">
+              Our services
+            </span>
+            <h1 className="mt-3 font-display text-[2.2rem] font-bold tracking-tight text-cream-on-dark sm:text-[2.8rem]">
+              What we do, every month
+            </h1>
+            <p className="mt-4 text-[1.05rem] leading-relaxed text-cream-on-dark-soft">
+              One monthly cycle covering both sides of search: the SEO work
+              that ranks you in Google, and the GEO work that gets you
+              recommended by AI.
+            </p>
+          </div>
+        </section>
+
+        <section className="border-b border-night-soft bg-night-soft py-14">
+          <div className="container-page">
+            <ServiceGrid />
+          </div>
+        </section>
         <GEOServices />
         <SEOServices />
       </main>
