@@ -132,8 +132,8 @@ export const SERVICES: ServiceCategory[] = [
     ],
     tiers: [
       {
-        name: "Urban",
-        sub: "Backyard Town",
+        name: "Backyard",
+        sub: "1 Town",
         goal: "Goal: Own their small town",
         features: [
           "50 Citation Submissions",

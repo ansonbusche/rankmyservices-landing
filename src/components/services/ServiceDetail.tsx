@@ -53,10 +53,14 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
 
       <section className="border-b border-night-soft bg-night-soft py-12">
         <div className="container-page">
-          <div className="mb-6 flex items-center justify-between gap-4">
+          <div className="mb-6 max-w-2xl">
             <h2 className="font-display text-[1.4rem] font-bold text-cream-on-dark sm:text-[1.7rem]">
-              Real-world results
+              What results look like
             </h2>
+            <p className="mt-2 text-[0.9rem] leading-relaxed text-cream-on-dark-soft">
+              Illustrative scenarios showing the kind of movement these
+              engagements aim for &mdash; not client data.
+            </p>
           </div>
         </div>
         <div className="overflow-hidden">
@@ -91,7 +95,7 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
               Straightforward plans, no surprises.
             </h2>
             <p className="mt-3 text-[0.98rem] leading-relaxed text-ink-soft">
-              Pulled straight from the current {service.label} pricing sheet.
+              Current {service.label} plans and what each one covers.
             </p>
           </div>
 
