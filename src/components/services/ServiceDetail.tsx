@@ -4,9 +4,11 @@ import { LinkButton } from "@/components/ui/Button";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Reveal } from "@/components/ui/Reveal";
 import { ServiceTabs } from "@/components/services/ServiceTabs";
-import type { ServiceCategory } from "@/lib/servicesData";
+import type { CaseStudy, ServiceCategory } from "@/lib/servicesData";
 
 export function ServiceDetail({ service }: { service: ServiceCategory }) {
+  // One lone card has nothing to scroll past, so it renders static instead.
+  const hasSlider = service.caseStudies.length > 1;
   const track = [...service.caseStudies, ...service.caseStudies];
 
   return (
@@ -58,34 +60,34 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
         <div className="container-page">
           <div className="mb-6 max-w-2xl">
             <h2 className="font-display text-[1.4rem] font-bold text-cream-on-dark sm:text-[1.7rem]">
-              What results look like
+              Real-world results
             </h2>
             <p className="mt-2 text-[0.9rem] leading-relaxed text-cream-on-dark-soft">
-              Illustrative scenarios showing the kind of movement these
-              engagements aim for &mdash; not client data.
+              Reported performance from live {service.label} campaigns. Results
+              vary by account, audience, and industry &mdash; past performance
+              doesn&rsquo;t guarantee future results.
             </p>
           </div>
         </div>
-        <div className="overflow-hidden">
-          <div
-            className="animate-marquee flex w-max gap-4 px-6 sm:px-10"
-            style={{ animationDuration: `${track.length * 7}s` }}
-          >
-            {track.map((cs, i) => (
-              <div
-                key={`${cs.industry}-${i}`}
-                className="w-[280px] shrink-0 rounded-2xl border border-border-on-dark bg-white/[0.03] p-6"
-              >
-                <span className="mb-3 inline-block rounded border border-dashed border-border-on-dark px-2 py-0.5 text-[0.62rem] tracking-wide text-cream-on-dark-soft">
-                  ILLUSTRATIVE EXAMPLE
-                </span>
-                <p className="font-mono text-[0.74rem] tracking-wide text-signal">{cs.industry}</p>
-                <p className="mt-2 font-display text-[1.35rem] font-bold text-cream-on-dark">{cs.metric}</p>
-                <p className="mt-2 text-[0.86rem] leading-relaxed text-cream-on-dark-soft">{cs.story}</p>
-              </div>
+
+        {hasSlider ? (
+          <div className="overflow-hidden">
+            <div
+              className="animate-marquee flex w-max gap-4 px-6 sm:px-10"
+              style={{ animationDuration: `${track.length * 7}s` }}
+            >
+              {track.map((cs, i) => (
+                <CaseStudyCard key={`${cs.industry}-${i}`} study={cs} />
+              ))}
+            </div>
+          </div>
+        ) : (
+          <div className="container-page">
+            {service.caseStudies.map((cs) => (
+              <CaseStudyCard key={cs.industry} study={cs} />
             ))}
           </div>
-        </div>
+        )}
       </section>
 
       <section className="border-b border-border bg-paper py-20 sm:py-24">
@@ -174,5 +176,21 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
         </div>
       </section>
     </>
+  );
+}
+
+function CaseStudyCard({ study }: { study: CaseStudy }) {
+  return (
+    <div className="w-[320px] shrink-0 rounded-2xl border border-border-on-dark bg-white/[0.03] p-6">
+      <p className="font-mono text-[0.74rem] tracking-wide text-signal">
+        {study.industry}
+      </p>
+      <p className="mt-2 font-display text-[1.35rem] font-bold text-cream-on-dark">
+        {study.metric}
+      </p>
+      <p className="mt-2 text-[0.86rem] leading-relaxed text-cream-on-dark-soft">
+        {study.story}
+      </p>
+    </div>
   );
 }

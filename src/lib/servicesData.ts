@@ -53,22 +53,28 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
-        industry: "ROOFING · UTAH",
-        metric: "0 → 6 AI mentions",
+        industry: "ROOFING · CHARLOTTE, NC",
+        metric: "+50% AI Overview citations",
         story:
-          "Went from unrecommended to appearing in 6 of 10 “best roofer near me” AI answers over one quarter.",
+          "Roof repair FAQs and cost guides, licensed-credential EEAT signals, and product schema lifted citations 50%, alongside 23% more clicks and 28% more impressions.",
       },
       {
-        industry: "HVAC · ARIZONA",
-        metric: "+38% AI share of voice",
+        industry: "LANDSCAPING · AUSTIN, TX",
+        metric: "+54% AI Overview citations",
         story:
-          "Authority content and schema pushed the brand ahead of two long-standing local competitors in AI answers.",
+          "Localized seasonal care guides answering “how-to” and “cost” questions drove a 55% rise in impressions and 20% growth in clicks.",
       },
       {
-        industry: "REMODELING · TEXAS",
-        metric: "12 citations added",
+        industry: "PLUMBING · DENVER, CO",
+        metric: "+50% AI Overview citations",
         story:
-          "New author and entity schema made the business easier for AI systems to verify and recommend.",
+          "Long-tail, FAQ-driven content with author bios and article schema produced 22% more clicks and 27% more impressions.",
+      },
+      {
+        industry: "CONSTRUCTION · NASHVILLE, TN",
+        metric: "+24% AI Overview citations",
+        story:
+          "FAQ content on timelines, permits, and budgeting, plus project portfolios and builder bios, delivered 22% more clicks and 27% growth in impressions.",
       },
     ],
     tiers: [
@@ -113,21 +119,34 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
-        industry: "PLUMBING · IDAHO",
-        metric: "+61% organic traffic",
+        industry: "COMMERCIAL HVAC · COLORADO SPRINGS, CO",
+        metric: "+234% organic traffic",
         story:
-          "Technical fixes and a content silo strategy compounded over two quarters of steady publishing.",
+          "Narrowing from broad residential terms to commercial HVAC and refrigeration grew organic traffic from 111 to 371 sessions a month, with 76% more users.",
       },
       {
-        industry: "FLOORING · UTAH",
-        metric: "Top 3 local pack",
+        industry: "ROOFING · TUCSON, AZ",
+        metric: "+150% conversions",
         story:
-          "Citation building and GBP management moved the business into the local 3-pack for its core service terms.",
+          "A conversion-first strategy on high-intent pages lifted organic users 71% over nine months; ranking keywords climbed 63 to 108 and average position 24.7 to 17.6.",
       },
       {
-        industry: "ROOFING · COLORADO",
-        metric: "4x indexed pages",
-        story: "Monthly content and internal linking gave Google far more of the site to rank.",
+        industry: "HVAC & AIR QUALITY",
+        metric: "+90% total site events",
+        story:
+          "Intent mapping around queries like “air duct cleaning near me,” plus GA4 tracking fixes, grew organic users 30% and sessions 37%.",
+      },
+      {
+        industry: "ROOFING & EXTERIOR · SOUTH GEORGIA",
+        metric: "+83% engagement time",
+        story:
+          "Early-stage visibility work lifted impressions 17% and clicks 11%, moving average position from 32.8 to 26.2.",
+      },
+      {
+        industry: "LAWN CARE · CONCORD, NC",
+        metric: "+16% search impressions",
+        story:
+          "“Near me” and city-specific optimization grew organic users 11% and improved average keyword position from 39.5 to 34.3 while holding #1 for core services.",
       },
     ],
     tiers: [
@@ -233,20 +252,34 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
-        industry: "HVAC · NEVADA",
-        metric: "-34% cost per lead",
+        industry: "TREE & LAWN CARE",
+        metric: "+212% conversions in 90 days",
         story:
-          "Weekly bid and offer optimization brought down cost per lead across two emergency-service campaigns.",
+          "Search plus Performance Max, with spend flexed from $2,500 to $500 and back to $5,000/mo, grew clicks 170% and delivered 553 total conversions since launch.",
       },
       {
-        industry: "REMODELING · UTAH",
-        metric: "+22 booked consults/mo",
-        story: "Retargeting plus a reworked offer turned browsers into booked consultations.",
+        industry: "LANDSCAPING",
+        metric: "+210% conversions",
+        story:
+          "On a $4,500/mo budget, single-keyword ad groups and urgency-led copy drove 145% more clicks at a 42% lower CPC and 55% lower CPA.",
       },
       {
-        industry: "PLUMBING · ARIZONA",
-        metric: "2.1x conversion rate",
-        story: "A/B tested ad copy and landing offers roughly doubled the on-site conversion rate.",
+        industry: "ROOFING",
+        metric: "+165% conversions",
+        story:
+          "On an $8,000/mo budget, granular keyword targeting and service-specific landing pages lifted clicks 133% while cutting CPC 57% and CPA 62%.",
+      },
+      {
+        industry: "MULTI-MARKET ROOFING · FLORIDA",
+        metric: "+94% month-over-month conversions",
+        story:
+          "Geo-targeted, single-keyword campaigns across West Palm Beach, Martin/St Lucie, and Lakeland cut cost per conversion 49%, compounding since the 2023 restructure.",
+      },
+      {
+        industry: "HVAC",
+        metric: "+83% total conversions",
+        story:
+          "Keyword precision, tailored geographic campaigns, and A/B tested copy raised click-through 50% and conversion rate 56% at a 41% lower CPA.",
       },
     ],
     tiers: [
@@ -326,20 +359,10 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
-        industry: "FLOORING · UTAH",
-        metric: "+3.4x retargeting CTR",
+        industry: "LOCAL SERVICE BUSINESS · FACEBOOK LEADS",
+        metric: "-30% cost per lead",
         story:
-          "Fresh monthly creative and a rebuilt retargeting pixel lifted click-through on warm audiences.",
-      },
-      {
-        industry: "ROOFING · TEXAS",
-        metric: "48K reach / week",
-        story: "Lookalike audiences built from past customers expanded reach without raising spend.",
-      },
-      {
-        industry: "REMODELING · IDAHO",
-        metric: "-27% cost per lead form",
-        story: "Advantage+ testing found the creative and audience combination that converted best.",
+          "A three-tier TOFU/MOFU/BOFU funnel with continuous creative testing drove cost per lead from $3.82 down to $2.67 — 50 leads on $190.99 of total ad spend.",
       },
     ],
     pricingNote: "For budgets exceeding $5,000/month, contact sales@rankmyservices.io.",
