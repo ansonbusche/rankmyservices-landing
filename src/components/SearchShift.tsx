@@ -39,7 +39,7 @@ export function SearchShift() {
             <>
               Ten blue links
               <br />
-              became <span className="font-accent">one answer.</span>
+              became <span className="font-bold text-signal">one answer.</span>
             </>
           }
         />

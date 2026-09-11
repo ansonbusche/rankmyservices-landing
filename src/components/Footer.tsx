@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Radio } from "lucide-react";
 import { BRAND_NAME } from "@/lib/config";
 
 export function Footer() {
@@ -10,10 +9,10 @@ export function Footer() {
       <div className="container-page">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <div className="flex items-center gap-2.5 text-cream-on-dark">
-            <span className="flex size-7 items-center justify-center rounded-full bg-signal text-white">
-              <Radio className="size-3.5" strokeWidth={2.5} />
+            <span className="flex size-7 items-center justify-center rounded-full bg-signal text-[0.65rem] font-black text-ink">
+              R
             </span>
-            <span className="font-display text-[1rem] font-bold tracking-tight">{BRAND_NAME}</span>
+            <span className="font-display text-[1rem] font-extrabold tracking-tight">{BRAND_NAME}</span>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.85rem] text-cream-on-dark-soft">
