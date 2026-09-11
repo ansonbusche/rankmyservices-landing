@@ -25,10 +25,10 @@ export function HowGEOWorks() {
         <div className="max-w-2xl">
           <Reveal>
             <h2 className="font-display text-[2.1rem] font-bold leading-[1.05] tracking-tight text-ink sm:text-[2.85rem]">
-              You don&rsquo;t buy a ranking on ChatGPT.
+              You don’t buy a ranking on ChatGPT.
               <br />
               You become easier for AI to{" "}
-              <span className="font-accent">trust and recommend.</span>
+              <span className="font-bold text-signal">trust and recommend.</span>
             </h2>
           </Reveal>
         </div>

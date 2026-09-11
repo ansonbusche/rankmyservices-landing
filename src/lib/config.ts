@@ -20,7 +20,6 @@ export const PRIMARY_CTA_SHORT = "See Your AI Visibility";
 export const NAV_LINKS = [
   { label: "How It Works", href: "/#how-it-works" },
   { label: "SEO vs GEO", href: "#what-is-geo" },
-  { label: "SEO Services", href: "/seo" },
-  { label: "What We Optimize", href: "/#services" },
+  { label: "Services", href: "/services" },
   { label: "FAQ", href: "#faq" },
 ] as const;

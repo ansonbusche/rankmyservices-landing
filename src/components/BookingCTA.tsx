@@ -41,11 +41,11 @@ export function BookingCTA() {
         <div className="mx-auto max-w-2xl text-center">
           <Reveal>
             <h2 className="font-display text-[2.1rem] font-bold leading-[1.06] tracking-tight text-cream-on-dark sm:text-[2.9rem]">
-              The question isn&rsquo;t whether people will ask AI who to
+              The question isn’t whether people will ask AI who to
               hire.
               <br />
-              It&rsquo;s whether AI will know to{" "}
-              <span className="font-accent">recommend you.</span>
+              It’s whether AI will know to{" "}
+              <span className="font-bold text-signal">recommend you.</span>
             </h2>
           </Reveal>
           <Reveal delay={80}>
@@ -62,7 +62,7 @@ export function BookingCTA() {
             {!submitted ? (
               <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row">
                 <label htmlFor="website-check" className="sr-only">
-                  What&rsquo;s your website?
+                  What’s your website?
                 </label>
                 <input
                   id="website-check"
@@ -83,7 +83,7 @@ export function BookingCTA() {
             ) : (
               <div className="flex items-center gap-3 rounded-full border border-good/50 bg-good/10 px-5 py-3.5 text-[0.92rem] text-cream-on-dark">
                 <CheckCircle2 className="size-[18px] shrink-0 text-good" />
-                Got it — we&rsquo;ll take a look at {website} on your call.
+                Got it — we’ll take a look at {website} on your call.
                 Pick a time below.
               </div>
             )}
@@ -107,7 +107,7 @@ export function BookingCTA() {
             </div>
 
             <p className="mt-5 text-center text-[0.85rem] text-cream-on-dark-soft">
-              No generic marketing audit. We&rsquo;ll look specifically at
+              No generic marketing audit. We’ll look specifically at
               your company, your market, and your AI-search visibility.
             </p>
           </div>

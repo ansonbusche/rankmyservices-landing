@@ -2,30 +2,30 @@
 
 :root {
   /* Canvas */
-  --color-paper: #f4f1ea;
+  --color-paper: #f2ede1;
   --color-paper-alt: #ece7db;
   --color-white: #ffffff;
-  --color-night: #121110;
-  --color-night-soft: #1c1a18;
-  --color-night-line: rgba(244, 241, 234, 0.12);
+  --color-night: #15130f;
+  --color-night-soft: #201c16;
+  --color-night-line: rgba(244, 239, 228, 0.12);
 
   /* Ink */
-  --color-ink: #14120f;
-  --color-ink-soft: #5f5a52;
+  --color-ink: #1c1912;
+  --color-ink-soft: #6b6355;
   --color-ink-faint: #a29c90;
-  --color-border: rgba(20, 18, 15, 0.1);
-  --color-border-strong: rgba(20, 18, 15, 0.2);
+  --color-border: rgba(28, 25, 18, 0.1);
+  --color-border-strong: rgba(28, 25, 18, 0.2);
 
   /* On dark */
-  --color-cream-on-dark: #f7f4ec;
-  --color-cream-on-dark-soft: rgba(247, 244, 236, 0.68);
-  --color-border-on-dark: rgba(247, 244, 236, 0.14);
+  --color-cream-on-dark: #f4efe4;
+  --color-cream-on-dark-soft: rgba(244, 239, 228, 0.68);
+  --color-border-on-dark: rgba(244, 239, 228, 0.14);
 
   /* The one committed accent: a signal flare, not a gradient */
-  --color-signal: #ff4d2e;
-  --color-signal-dim: #d43d21;
-  --color-signal-soft: rgba(255, 77, 46, 0.14);
-  --color-signal-soft-dark: rgba(255, 77, 46, 0.22);
+  --color-signal: #ff4b2e;
+  --color-signal-dim: #d63c22;
+  --color-signal-soft: rgba(255, 75, 46, 0.14);
+  --color-signal-soft-dark: rgba(255, 75, 46, 0.22);
 
   --color-good: #2f9e5c;
   --color-warn: #eab308;
@@ -34,7 +34,7 @@
   --beacon-sweep: conic-gradient(
     from 200deg at 50% 30%,
     transparent 0deg,
-    rgba(255, 77, 46, 0.55) 40deg,
+    rgba(255, 75, 46, 0.55) 40deg,
     transparent 100deg,
     transparent 360deg
   );
@@ -67,12 +67,13 @@
   --color-bad: var(--color-bad);
 
   --font-sans: var(--font-inter);
-  --font-display: var(--font-syne);
-  --font-serif: var(--font-fraunces);
+  --font-display: var(--font-archivo);
+  --font-mono: var(--font-ibm-plex-mono);
 
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-sweep: sweep 9s linear infinite;
   --animate-pulse-slow: pulse-slow 3.4s ease-in-out infinite;
+  --animate-marquee: marquee 30s linear infinite;
 
   @keyframes fade-up {
     from {
@@ -101,6 +102,15 @@
     }
     50% {
       opacity: 1;
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
     }
   }
 }
@@ -172,16 +182,16 @@ body {
 }
 
 .font-accent {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
   color: var(--color-signal);
 }
 
 .font-accent-on-dark {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-weight: 800;
   color: var(--color-signal);
 }
 
@@ -197,4 +207,21 @@ body {
 
 .tabular-nums {
   font-variant-numeric: tabular-nums;
+}
+
+/* Both the services-hub case-study track and the homepage MarqueeStrip use
+   .animate-marquee, generated from the --animate-marquee token in @theme
+   above. Each track duplicates its content 2x and scrolls exactly half its
+   width, so the loop is seamless. Hover pauses it. */
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Horizontal tab strips scroll on narrow screens; the bar itself is noise. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
