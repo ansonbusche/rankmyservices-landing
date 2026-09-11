@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Menu, Radio, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { BRAND_NAME, NAV_LINKS, PRIMARY_CTA_SHORT } from "@/lib/config";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { cn } from "@/lib/utils";
@@ -44,10 +44,10 @@ export function Navbar() {
             solid ? "text-ink" : "text-cream-on-dark"
           )}
         >
-          <span className="flex size-8 items-center justify-center rounded-full bg-signal text-white">
-            <Radio className="size-4" strokeWidth={2.5} />
+          <span className="flex size-7 items-center justify-center rounded-full bg-signal text-[0.7rem] font-black text-ink">
+            R
           </span>
-          <span className="font-display text-[1.05rem] font-bold tracking-tight">
+          <span className="font-display text-[1.05rem] font-extrabold tracking-tight">
             {BRAND_NAME}
           </span>
         </Link>
