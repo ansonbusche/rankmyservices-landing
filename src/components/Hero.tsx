@@ -1,5 +1,6 @@
 import { CtaLink } from "@/components/ui/CtaLink";
-import { AIAnswerMockup } from "@/components/AIAnswerMockup";
+import { LinkButton } from "@/components/ui/Button";
+import { VideoPanel } from "@/components/VideoPanel";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Hero() {
@@ -27,7 +28,7 @@ export function Hero() {
           <Reveal delay={80}>
             <h1 className="mt-6 font-display text-[2.6rem] font-bold leading-[1.02] tracking-tight text-cream-on-dark sm:text-[3.6rem] lg:text-[4rem]">
               When customers Google you &mdash; or ask ChatGPT{" "}
-              <span className="font-accent">who to hire</span>&hellip; does
+              <span className="font-bold text-signal">who to hire</span>&hellip; does
               your business show up?
             </h1>
           </Reveal>
@@ -46,6 +47,14 @@ export function Hero() {
               <CtaLink event="hero_cta_clicked" variant="primary" className="w-full sm:w-auto">
                 See How You Rank in AI Search
               </CtaLink>
+              <LinkButton
+                href="#video"
+                variant="outline-on-dark"
+                showArrow={false}
+                className="w-full sm:w-auto"
+              >
+                ▶ Watch the overview
+              </LinkButton>
             </div>
             <p className="mt-4 text-[0.88rem] text-cream-on-dark-soft/70">
               We&rsquo;ll show you which competitors AI recommends &mdash; and
@@ -55,7 +64,9 @@ export function Hero() {
         </div>
 
         <Reveal delay={200} className="lg:pl-4">
-          <AIAnswerMockup />
+          <div id="video">
+            <VideoPanel />
+          </div>
         </Reveal>
       </div>
     </section>
