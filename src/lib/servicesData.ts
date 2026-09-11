@@ -11,6 +11,15 @@ export type PricingTier = {
 };
 
 export type CaseStudy = {
+  /** Cover-card fields, mirroring the printed case study sheets. */
+  title: string;
+  kicker: string;
+  statValue: string;
+  statDirection: "Increase" | "Decrease";
+  statLabel: string;
+  /** Full sheet, opened when the card is clicked. */
+  image: string;
+  /** Supporting detail shown alongside the sheet in the viewer. */
   industry: string;
   metric: string;
   story: string;
@@ -53,24 +62,48 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
+        title: "Roofing",
+        kicker: "GEO Case Study",
+        statValue: "50%",
+        statDirection: "Increase",
+        statLabel: "Number of AI Overview citations",
+        image: "/case-studies/roofing-geo.jpg",
         industry: "ROOFING · CHARLOTTE, NC",
         metric: "+50% AI Overview citations",
         story:
           "Roof repair FAQs and cost guides, licensed-credential EEAT signals, and product schema lifted citations 50%, alongside 23% more clicks and 28% more impressions.",
       },
       {
+        title: "Landscaping",
+        kicker: "GEO Case Study",
+        statValue: "54%",
+        statDirection: "Increase",
+        statLabel: "Number of AI Overview citations",
+        image: "/case-studies/landscaping-geo.jpg",
         industry: "LANDSCAPING · AUSTIN, TX",
         metric: "+54% AI Overview citations",
         story:
           "Localized seasonal care guides answering “how-to” and “cost” questions drove a 55% rise in impressions and 20% growth in clicks.",
       },
       {
+        title: "Plumbing",
+        kicker: "GEO Case Study",
+        statValue: "50%",
+        statDirection: "Increase",
+        statLabel: "Number of AI Overview citations",
+        image: "/case-studies/plumbing-geo.jpg",
         industry: "PLUMBING · DENVER, CO",
         metric: "+50% AI Overview citations",
         story:
           "Long-tail, FAQ-driven content with author bios and article schema produced 22% more clicks and 27% more impressions.",
       },
       {
+        title: "Construction",
+        kicker: "GEO Case Study",
+        statValue: "24%",
+        statDirection: "Increase",
+        statLabel: "Number of AI Overview citations",
+        image: "/case-studies/construction-geo.jpg",
         industry: "CONSTRUCTION · NASHVILLE, TN",
         metric: "+24% AI Overview citations",
         story:
@@ -119,30 +152,60 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
+        title: "Commercial HVAC",
+        kicker: "SEO Case Study",
+        statValue: "234%",
+        statDirection: "Increase",
+        statLabel: "Increase in organic traffic",
+        image: "/case-studies/commercial-hvac-seo.jpg",
         industry: "COMMERCIAL HVAC · COLORADO SPRINGS, CO",
         metric: "+234% organic traffic",
         story:
           "Narrowing from broad residential terms to commercial HVAC and refrigeration grew organic traffic from 111 to 371 sessions a month, with 76% more users.",
       },
       {
+        title: "Roofing",
+        kicker: "SEO Case Study",
+        statValue: "150%",
+        statDirection: "Increase",
+        statLabel: "Increase in key events (conversions)",
+        image: "/case-studies/roofing-seo.jpg",
         industry: "ROOFING · TUCSON, AZ",
         metric: "+150% conversions",
         story:
           "A conversion-first strategy on high-intent pages lifted organic users 71% over nine months; ranking keywords climbed 63 to 108 and average position 24.7 to 17.6.",
       },
       {
+        title: "HVAC & Air Quality",
+        kicker: "SEO Case Study",
+        statValue: "90%",
+        statDirection: "Increase",
+        statLabel: "Increase in total event count",
+        image: "/case-studies/hvac-air-quality-seo.jpg",
         industry: "HVAC & AIR QUALITY",
         metric: "+90% total site events",
         story:
           "Intent mapping around queries like “air duct cleaning near me,” plus GA4 tracking fixes, grew organic users 30% and sessions 37%.",
       },
       {
+        title: "Roofing & Exterior",
+        kicker: "SEO Case Study",
+        statValue: "83%",
+        statDirection: "Increase",
+        statLabel: "Increase in avg. engagement time",
+        image: "/case-studies/roofing-exterior-seo.jpg",
         industry: "ROOFING & EXTERIOR · SOUTH GEORGIA",
         metric: "+83% engagement time",
         story:
           "Early-stage visibility work lifted impressions 17% and clicks 11%, moving average position from 32.8 to 26.2.",
       },
       {
+        title: "Lawn Care",
+        kicker: "SEO Case Study",
+        statValue: "16%",
+        statDirection: "Increase",
+        statLabel: "Increase in search impressions",
+        image: "/case-studies/lawn-care-seo.jpg",
         industry: "LAWN CARE · CONCORD, NC",
         metric: "+16% search impressions",
         story:
@@ -252,30 +315,60 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
+        title: "Tree & Lawn Care",
+        kicker: "Paid Search Case Study",
+        statValue: "212%",
+        statDirection: "Increase",
+        statLabel: "90-day increase in conversions",
+        image: "/case-studies/tree-lawn-care-paid-search.jpg",
         industry: "TREE & LAWN CARE",
         metric: "+212% conversions in 90 days",
         story:
           "Search plus Performance Max, with spend flexed from $2,500 to $500 and back to $5,000/mo, grew clicks 170% and delivered 553 total conversions since launch.",
       },
       {
+        title: "Landscaping",
+        kicker: "Paid Search Case Study",
+        statValue: "210%",
+        statDirection: "Increase",
+        statLabel: "Increase in conversions",
+        image: "/case-studies/landscaping-paid-search.jpg",
         industry: "LANDSCAPING",
         metric: "+210% conversions",
         story:
           "On a $4,500/mo budget, single-keyword ad groups and urgency-led copy drove 145% more clicks at a 42% lower CPC and 55% lower CPA.",
       },
       {
+        title: "Roofing",
+        kicker: "Paid Search Case Study",
+        statValue: "165%",
+        statDirection: "Increase",
+        statLabel: "Increase in conversions",
+        image: "/case-studies/roofing-paid-search.jpg",
         industry: "ROOFING",
         metric: "+165% conversions",
         story:
           "On an $8,000/mo budget, granular keyword targeting and service-specific landing pages lifted clicks 133% while cutting CPC 57% and CPA 62%.",
       },
       {
+        title: "Multi-Market Roofing",
+        kicker: "Paid Search Case Study",
+        statValue: "94%",
+        statDirection: "Increase",
+        statLabel: "MoM increase in conversions",
+        image: "/case-studies/multi-market-roofing-paid-search.jpg",
         industry: "MULTI-MARKET ROOFING · FLORIDA",
         metric: "+94% month-over-month conversions",
         story:
           "Geo-targeted, single-keyword campaigns across West Palm Beach, Martin/St Lucie, and Lakeland cut cost per conversion 49%, compounding since the 2023 restructure.",
       },
       {
+        title: "HVAC",
+        kicker: "Paid Search Case Study",
+        statValue: "83%",
+        statDirection: "Increase",
+        statLabel: "Increase in conversions",
+        image: "/case-studies/hvac-paid-search.jpg",
         industry: "HVAC",
         metric: "+83% total conversions",
         story:
@@ -359,6 +452,12 @@ export const SERVICES: ServiceCategory[] = [
     ],
     caseStudies: [
       {
+        title: "Facebook Lead Generation",
+        kicker: "Meta Ads Case Study",
+        statValue: "30%",
+        statDirection: "Decrease",
+        statLabel: "Reduction in cost per lead",
+        image: "/case-studies/facebook-lead-generation-meta.jpg",
         industry: "LOCAL SERVICE BUSINESS · FACEBOOK LEADS",
         metric: "-30% cost per lead",
         story:

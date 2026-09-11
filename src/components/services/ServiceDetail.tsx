@@ -3,17 +3,14 @@ import { ArrowLeft, Check } from "lucide-react";
 import { LinkButton } from "@/components/ui/Button";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Reveal } from "@/components/ui/Reveal";
-import { ServiceTabs } from "@/components/services/ServiceTabs";
-import type { CaseStudy, ServiceCategory } from "@/lib/servicesData";
+import { CaseStudyRail } from "@/components/services/CaseStudyRail";
+import type { ServiceCategory } from "@/lib/servicesData";
 
 export function ServiceDetail({ service }: { service: ServiceCategory }) {
-  // One lone card has nothing to scroll past, so it renders static instead.
-  const hasSlider = service.caseStudies.length > 1;
-  const track = [...service.caseStudies, ...service.caseStudies];
 
   return (
     <>
-      <section className="border-b border-night-soft bg-night pb-14 pt-40 sm:pt-48">
+      <section className="border-b border-night-soft bg-night pb-14 pt-14 sm:pt-16">
         <div className="container-page">
           <Link
             href="/services"
@@ -54,8 +51,6 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
         </div>
       </section>
 
-      <ServiceTabs activeSlug={service.slug} />
-
       <section className="border-b border-night-soft bg-night-soft py-12">
         <div className="container-page">
           <div className="mb-6 max-w-2xl">
@@ -70,24 +65,7 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
           </div>
         </div>
 
-        {hasSlider ? (
-          <div className="overflow-hidden">
-            <div
-              className="animate-marquee flex w-max gap-4 px-6 sm:px-10"
-              style={{ animationDuration: `${track.length * 7}s` }}
-            >
-              {track.map((cs, i) => (
-                <CaseStudyCard key={`${cs.industry}-${i}`} study={cs} />
-              ))}
-            </div>
-          </div>
-        ) : (
-          <div className="container-page">
-            {service.caseStudies.map((cs) => (
-              <CaseStudyCard key={cs.industry} study={cs} />
-            ))}
-          </div>
-        )}
+        <CaseStudyRail studies={service.caseStudies} />
       </section>
 
       <section className="border-b border-border bg-paper py-20 sm:py-24">
@@ -176,21 +154,5 @@ export function ServiceDetail({ service }: { service: ServiceCategory }) {
         </div>
       </section>
     </>
-  );
-}
-
-function CaseStudyCard({ study }: { study: CaseStudy }) {
-  return (
-    <div className="w-[320px] shrink-0 rounded-2xl border border-border-on-dark bg-white/[0.03] p-6">
-      <p className="font-mono text-[0.74rem] tracking-wide text-signal">
-        {study.industry}
-      </p>
-      <p className="mt-2 font-display text-[1.35rem] font-bold text-cream-on-dark">
-        {study.metric}
-      </p>
-      <p className="mt-2 text-[0.86rem] leading-relaxed text-cream-on-dark-soft">
-        {study.story}
-      </p>
-    </div>
   );
 }

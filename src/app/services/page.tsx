@@ -31,9 +31,10 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <Navbar />
-      <main className="flex-1 bg-paper pb-24 pt-40 sm:pt-48">
-        <div className="container-page max-w-3xl pb-10">
+      <Navbar hub />
+      <main className="flex-1 bg-paper pb-24 pt-[72px]">
+        <ServiceTabs />
+        <div className="container-page max-w-3xl pb-10 pt-16 sm:pt-20">
           <h1 className="font-display text-[2.2rem] font-bold tracking-tight text-ink sm:text-[2.8rem]">
             What we do, every month
           </h1>
@@ -43,7 +44,6 @@ export default function ServicesPage() {
             recommended by AI.
           </p>
         </div>
-        <ServiceTabs />
         <div className="container-page mt-12">
           <ServiceGrid />
         </div>

@@ -216,3 +216,12 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+
+/* Horizontal tab strips scroll on narrow screens; the bar itself is noise. */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

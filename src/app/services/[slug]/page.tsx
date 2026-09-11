@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { BookingCTA } from "@/components/BookingCTA";
 import { StickyMobileCta } from "@/components/StickyMobileCta";
 import { ServiceDetail } from "@/components/services/ServiceDetail";
+import { ServiceTabs } from "@/components/services/ServiceTabs";
 import { SERVICES, getServiceBySlug } from "@/lib/servicesData";
 import { BRAND_NAME, SITE_URL } from "@/lib/config";
 
@@ -55,8 +56,9 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <Navbar />
-      <main className="flex-1">
+      <Navbar hub activeSlug={service.slug} />
+      <main className="flex-1 pt-[72px]">
+        <ServiceTabs activeSlug={service.slug} />
         <ServiceDetail service={service} />
       </main>
       <BookingCTA />
