@@ -1,33 +1,60 @@
-import { Play } from "lucide-react";
+"use client";
 
-// Placeholder video panel for the hero. No video file exists yet — this
-// preserves the visual design Anson approved (dark card, pulsing play
-// button, frame label) without claiming a specific runtime for a video
-// that doesn't exist. Swap the inner content for a real <video>/embed
-// once a file or link is available.
+import { useEffect, useRef, useState } from "react";
+import { Volume2 } from "lucide-react";
+
+// Hero explainer. Autoplays muted and loops — browsers only permit autoplay
+// without sound, so the unmute prompt below is the way viewers opt into audio.
+// Native controls stay on so they can also scrub or go fullscreen.
+//
+// Autoplay means every visitor fetches the file, so it is kept to a single
+// 14MB 1080p encode rather than anything larger.
 export function VideoPanel() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  // Respect reduced-motion: hold on the poster instead of moving on its own.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      videoRef.current?.pause();
+    }
+  }, []);
+
+  function unmute() {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = false;
+    setMuted(false);
+    if (v.paused) v.play();
+  }
+
   return (
-    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-border-on-dark bg-[linear-gradient(155deg,#2a251c,#191510)] shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]">
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-[radial-gradient(circle_at_25%_20%,rgba(255,77,46,0.16),transparent_55%)]"
+    <div className="relative aspect-video overflow-hidden rounded-2xl border border-border-on-dark bg-night-soft shadow-[0_30px_60px_-30px_rgba(0,0,0,0.6)]">
+      <video
+        ref={videoRef}
+        className="size-full"
+        src="/video/rms-hero.mp4"
+        poster="/video/rms-hero-poster.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        controls
+        preload="auto"
+        onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
       />
 
-      <span className="absolute left-4 top-3.5 font-mono text-[0.68rem] tracking-[0.1em] text-cream-on-dark-soft">
-        AI VISIBILITY, EXPLAINED
-      </span>
-
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span aria-hidden className="absolute size-16 animate-ping rounded-full bg-signal opacity-40" />
-        <span className="relative flex size-16 items-center justify-center rounded-full bg-signal text-white shadow-[0_10px_30px_-10px_rgba(255,77,46,0.7)]">
-          <Play className="ml-1 size-5" fill="currentColor" strokeWidth={0} />
-        </span>
-      </div>
-
-      <div className="absolute inset-x-4 bottom-3.5 flex items-center justify-between font-mono text-[0.66rem] tracking-[0.08em] text-cream-on-dark-soft">
-        <span>WATCH THE OVERVIEW</span>
-        <span className="font-semibold text-cream-on-dark">PREVIEW</span>
-      </div>
+      {muted && (
+        <button
+          type="button"
+          onClick={unmute}
+          aria-label="Unmute the explainer"
+          className="absolute left-4 top-4 flex items-center gap-2 rounded-full bg-signal px-4 py-2.5 font-display text-[0.82rem] font-bold tracking-tight text-white shadow-[0_10px_30px_-10px_rgba(255,75,46,0.7)] transition-transform hover:scale-105 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+        >
+          <Volume2 className="size-4" />
+          Tap for sound
+        </button>
+      )}
     </div>
   );
 }
