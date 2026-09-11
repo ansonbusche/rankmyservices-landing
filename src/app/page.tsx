@@ -1,5 +1,7 @@
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { MarqueeStrip } from "@/components/MarqueeStrip";
+import { StatsRow } from "@/components/StatsRow";
 import { SearchShift } from "@/components/SearchShift";
 import { SEOvsGEO } from "@/components/SEOvsGEO";
 import { VisibilityProblem } from "@/components/VisibilityProblem";
@@ -27,6 +29,8 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <MarqueeStrip />
+        <StatsRow />
         <SearchShift />
         <SEOvsGEO />
         <VisibilityProblem />
