@@ -3,7 +3,7 @@ import { SERVICES } from "@/lib/servicesData";
 import { cn } from "@/lib/utils";
 
 const TAB_BASE =
-  "shrink-0 rounded-full border px-3.5 py-2 font-mono text-[0.76rem] tracking-[0.04em] transition-colors";
+  "shrink-0 rounded-full border px-4 py-2 font-display text-[0.92rem] font-bold tracking-tight transition-colors";
 const TAB_ACTIVE = "border-signal bg-signal text-white";
 const TAB_IDLE =
   "border-transparent text-cream-on-dark-soft hover:border-border-on-dark hover:text-cream-on-dark";

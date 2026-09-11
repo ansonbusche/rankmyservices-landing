@@ -74,7 +74,7 @@ export function Navbar({
                 href={`/services/${service.slug}`}
                 aria-current={activeSlug === service.slug ? "page" : undefined}
                 className={cn(
-                  "whitespace-nowrap rounded-full border px-3.5 py-2 font-mono text-[0.76rem] tracking-[0.04em] transition-colors",
+                  "whitespace-nowrap rounded-full border px-4 py-2 font-display text-[0.92rem] font-bold tracking-tight transition-colors",
                   activeSlug === service.slug
                     ? "border-signal bg-signal text-white"
                     : "border-transparent text-cream-on-dark-soft hover:border-border-on-dark hover:text-cream-on-dark"
